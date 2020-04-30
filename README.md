@@ -1,5 +1,5 @@
 # jetpack-sample
-Project for using components by Android Jetpack
+Project for study and using components of Android Jetpack
 
 # Jetpack
   - Room
