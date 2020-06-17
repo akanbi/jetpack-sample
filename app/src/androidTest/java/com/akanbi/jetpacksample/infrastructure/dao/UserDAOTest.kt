@@ -2,10 +2,10 @@ package com.akanbi.jetpacksample.infrastructure.dao
 
 import androidx.lifecycle.LiveData
 import com.akanbi.jetpacksample.domain.model.User
-import com.akanbi.jetpacksample.infrastructure.dao.UserDAO
 import com.akanbi.jetpacksample.infrastructure.database.UserRegisterDatabase
 import com.akanbi.jetpacksample.infrastructure.di.modulesAppTest
 import kotlinx.coroutines.*
+import org.joda.time.LocalDateTime
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -14,7 +14,6 @@ import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import org.koin.core.get
 import org.koin.test.KoinTest
-import java.util.*
 
 class UserDAOTest : KoinTest {
 
@@ -36,7 +35,7 @@ class UserDAOTest : KoinTest {
 
     @Test
     fun shouldInsertUser() {
-        val user = User(name = "Muhammad", surname = "Ali", birthDate = Date())
+        val user = User(name = "Muhammad", surname = "Ali", birthDate = LocalDateTime.now())
 
         dao.insert(user)
 
@@ -50,11 +49,11 @@ class UserDAOTest : KoinTest {
 
     @Test
     fun shouldListAllUser() {
-        val userOne = User(name = "Muhammad", surname = "Ali", birthDate = Date())
-        val userTwo = User(name = "Mike", surname = "Tyson", birthDate = Date())
-        val userThree = User(name = "Michael", surname = "Jordan", birthDate = Date())
-        val userFour = User(name = "Lebron", surname = "James", birthDate = Date())
-        val userFive = User(name = "Ronaldo", surname = "Nazário", birthDate = Date())
+        val userOne = User(name = "Muhammad", surname = "Ali", birthDate = LocalDateTime.now())
+        val userTwo = User(name = "Mike", surname = "Tyson", birthDate = LocalDateTime.now())
+        val userThree = User(name = "Michael", surname = "Jordan", birthDate = LocalDateTime.now())
+        val userFour = User(name = "Lebron", surname = "James", birthDate = LocalDateTime.now())
+        val userFive = User(name = "Ronaldo", surname = "Nazário", birthDate = LocalDateTime.now())
 
         dao.insert(userOne)
         dao.insert(userTwo)
@@ -76,9 +75,9 @@ class UserDAOTest : KoinTest {
 
     @Test
     fun shouldDeleteMoneyTransaction() {
-        val userOne = User(name = "Muhammad", surname = "Ali", birthDate = Date())
-        val userTwo = User(name = "Mike", surname = "Tyson", birthDate = Date())
-        val userThree = User(name = "Michael", surname = "Jordan", birthDate = Date())
+        val userOne = User(name = "Muhammad", surname = "Ali", birthDate = LocalDateTime.now())
+        val userTwo = User(name = "Mike", surname = "Tyson", birthDate = LocalDateTime.now())
+        val userThree = User(name = "Michael", surname = "Jordan", birthDate = LocalDateTime.now())
 
         dao.insert(userOne)
         dao.insert(userTwo)
@@ -97,8 +96,8 @@ class UserDAOTest : KoinTest {
 
     @Test
     fun shouldUpdateMoneyTransaction() {
-        val userInserted = User(name = "Bill", surname = "Gates", birthDate = Date())
-        val userUpdated = User(name = "Steve", surname = "Jobs", birthDate = Date())
+        val userInserted = User(name = "Bill", surname = "Gates", birthDate = LocalDateTime.now())
+        val userUpdated = User(name = "Steve", surname = "Jobs", birthDate = LocalDateTime.now())
 
         dao.insert(userInserted)
 

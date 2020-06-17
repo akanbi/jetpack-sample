@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">jetpack-sample</string>
+
+    <string name="namePlaceholder">Nome</string>
+    <string name="surnamePlaceholder">Sobrenome</string>
+    <string name="birthdayPlaceholder">Data de nascimento</string>
+    <string name="successfullyDeleted">Deletado com sucesso!</string>
+    <string name="nameFieldIsBlank">O Nome deve ser preenchido!</string>
+    <string name="surnameFieldIsBlank">O Sobrenome deve ser preenchido!</string>
 </resources>
