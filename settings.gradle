@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "jetpack-sample"
 include ':app'
+include ':hilt'
+include ':common-kotlin'
+include ':common-android'
