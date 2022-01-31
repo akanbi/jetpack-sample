@@ -1,9 +1,12 @@
 package com.akanbi.jetpacksample
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -22,7 +25,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    NavigateButton(
+                        context = this,
+                        title = "Hilt",
+                        clazzToNavigate = "com.akanbi.hilt.presentation.UserActivity")
                 }
             }
         }
@@ -30,14 +36,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun NavigateButton(context: Context? = null, title: String, clazzToNavigate: String) {
+    Button(
+        onClick = {
+            context?.startActivity(Intent(context, Class.forName(clazzToNavigate)))
+        }) {
+        Text(text = title)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     JetpacksampleTheme {
-        Greeting("Android")
+        NavigateButton(
+            title = "Hilt",
+            clazzToNavigate = "com.akanbi.hilt.presentation.UserActivity")
     }
 }

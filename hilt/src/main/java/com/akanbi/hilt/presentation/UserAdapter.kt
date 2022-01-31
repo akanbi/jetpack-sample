@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.akanbi.hilt.databinding.ContentUserBinding
 import com.akanbi.hilt.network.model.User
 
-class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
-    private lateinit var list: ArrayList<User>
+class UserAdapter(private var list: ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder =
         UserViewHolder(
