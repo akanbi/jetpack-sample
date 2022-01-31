@@ -1,5 +1,6 @@
 package com.akanbi.jetpacksample
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +14,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.akanbi.hilt.presentation.UserActivity
 import com.akanbi.jetpacksample.ui.theme.JetpacksampleTheme
+import kotlin.reflect.KClass
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     NavigateButton(
                         context = this,
                         title = "Hilt",
-                        clazzToNavigate = "com.akanbi.hilt.presentation.UserActivity")
+                        clazzToNavigate = UserActivity::class)
                 }
             }
         }
@@ -36,10 +39,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun NavigateButton(context: Context? = null, title: String, clazzToNavigate: String) {
+fun NavigateButton(context: Context? = null, title: String, clazzToNavigate: KClass<*>) {
     Button(
         onClick = {
-            context?.startActivity(Intent(context, Class.forName(clazzToNavigate)))
+            context?.startActivity(Intent(context, UserActivity::class.java))
         }) {
         Text(text = title)
     }
@@ -51,6 +54,6 @@ fun DefaultPreview() {
     JetpacksampleTheme {
         NavigateButton(
             title = "Hilt",
-            clazzToNavigate = "com.akanbi.hilt.presentation.UserActivity")
+            clazzToNavigate = UserActivity::class)
     }
 }

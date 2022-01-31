@@ -10,4 +10,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="error_user_list">User list empty!</string>
+    <string name="app_hilt_name">Hilt Sample</string>
 </resources>
