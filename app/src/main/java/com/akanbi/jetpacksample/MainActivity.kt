@@ -42,7 +42,9 @@ class MainActivity : ComponentActivity() {
 fun NavigateButton(context: Context? = null, title: String, clazzToNavigate: KClass<*>) {
     Button(
         onClick = {
-            context?.startActivity(Intent(context, UserActivity::class.java))
+            val intent =
+                context?.packageManager?.getLaunchIntentForPackage("com.akanbi.hilt.presentation.UserActivity")
+            context?.startActivity(intent)
         }) {
         Text(text = title)
     }
